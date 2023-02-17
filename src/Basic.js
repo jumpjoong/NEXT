@@ -7,13 +7,14 @@ function Basic() {
   const router = useRouter();
   
   function getData () {
-    axios.get('../api/hello')
+    axios.get('/api/hello')
     .then(res => {
       setData(res.data)
     })
   }
   function remove (id) {
     axios.delete('/api/hello', {data: id})
+    getData();
   }
   
   useEffect(()=> {
@@ -21,7 +22,7 @@ function Basic() {
   },[])
 
 
-  if(!data.length) return (<>loading....<Link href="/src/Write">글쓰기로 이동</Link></>)
+  if(!data.length) return (<>loading....<Link href="./Write">글쓰기로 이동</Link></>)
   return (
     <main>
       <div>
@@ -33,7 +34,7 @@ function Basic() {
                   <p>{obj.name}</p>
                   <p>{obj.email}</p>
                   <p>{obj.tel}</p>
-                  <button onClick={()=> router.push({ pathname: 'src/Edit', query : obj})}>수정</button>
+                  <button onClick={()=> router.push({ pathname: './Edit', query : obj})}>수정</button>
                   <button onClick={()=> remove(obj.id)}>삭제</button>
                 </li>
             </div>

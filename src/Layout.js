@@ -1,9 +1,11 @@
-import React from "react"
+import React from 'react'
 
 const Layout = ({children}) => {
   return (
     <>
-    <header></header>
+    <header>
+
+    </header>
     {children}
     <footer></footer>
     </>

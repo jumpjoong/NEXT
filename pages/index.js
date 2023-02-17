@@ -1,6 +1,6 @@
-import HeadMeta from "@/pages/src/HeadMeta";
-import Layout from "@/pages/src/Layout";
-import Basic from "@/pages/src/Basic";
+import HeadMeta from "@/src/HeadMeta";
+import Layout from "@/src/Layout";
+import Basic from "@/src/Basic";
 
 
 export default function Home() {
