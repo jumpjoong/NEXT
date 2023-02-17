@@ -5,7 +5,7 @@
 
   export default function handler(req, res) {
     const {method, body} = req 
-
+    console.log("테스트입니다.")
     switch (method) {
       case 'POST' : addData(); break;
       case 'GET' : getData(); break;
@@ -14,10 +14,12 @@
     }
 
     function addData() {
+      console.log("데이터 생성.")
       db.push(body);
       saveData();
     }
     function getData() {
+      console.log("데이터 추출.")
       res.status(200).json(db);
     }
     function remove() {
