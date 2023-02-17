@@ -10,6 +10,7 @@ function Basic() {
     axios.get('/api/hello')
     .then(res => {
       setData(res.data)
+      console.log(res.data)
     })
   }
   function remove (id) {
