@@ -7,17 +7,20 @@ function Basic() {
   const router = useRouter();
   
   function getData () {
-    axios.get('/api/hello')
+    axios.get('../api/hello')
     .then(res => {
       setData(res.data)
-      console.log(res.data)
     })
   }
   function remove (id) {
     axios.delete('/api/hello', {data: id})
   }
   
-  useEffect(()=> getData,[data])
+  useEffect(()=> {
+    getData();
+  },[])
+
+
   if(!data.length) return (<>loading....<Link href="/src/Write">글쓰기로 이동</Link></>)
   return (
     <main>
