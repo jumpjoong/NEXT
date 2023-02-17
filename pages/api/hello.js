@@ -10,7 +10,7 @@
       case 'POST' : addData(); break;
       case 'GET' : getData(); break;
       case 'DELETE' : remove(); break;
-      case 'PUT' : fix(); break;
+      case 'PUT' : editData(); break;
     }
 
     function addData() {
@@ -24,9 +24,11 @@
       db = db.filter((item)=> item.id !== body);
       saveData()
     }
-    // function fix() {
-      
-    // }
+    function editData() {
+      let user = db.find((item) => item.id == body.id)
+      Object.assign(user,body)
+      saveData()
+    }
     function saveData() {
       fs.writeFileSync('bigData/bigData.json', JSON.stringify(db));
       res.status(200).json(db);
