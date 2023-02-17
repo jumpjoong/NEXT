@@ -5,7 +5,7 @@ import axios from 'axios';
 function Edit() {
   const router = useRouter();
   const { query } = router;
-  const base = {id: query.id, name: query.name, email: query.email, tel: query.tel};
+  const base = {id: query.id, title: query.title, detail: query.detail, hashtag: query.hashtag};
   const [value, setValue] = useState(base)
   
   function valueData (e) {
@@ -20,13 +20,21 @@ function Edit() {
   }
   console.log(value)
   return (
-    <div>
-      <form onSubmit={update}>
-        <input value={value.name} type="name" name='name' onChange={valueData}></input>
-        <input value={value.email} type="email" name='email' onChange={valueData}></input>
-        <input value={value.tel} type="tel" name='tel' onChange={valueData}></input>
-        <input type="submit" value="전송"></input>
-      </form>
+    <div className='write'>
+      <div className='write-wrap'>
+        <form onSubmit={update}>
+          <div>
+            <p>제목</p><input type="text" name='title' onChange={valueData} value={value.title}></input>
+          </div>
+          <div>
+            <p>내용</p><input type="text" name='detail' onChange={valueData} value={value.detail}></input>
+          </div>
+          <div>
+            <p>태그</p><input type="text" name='hashtag' onChange={valueData} value={value.hashtag}></input>
+          </div>
+          <input type="submit" value="전송"></input>
+        </form>
+      </div>
     </div>
   )
 }
